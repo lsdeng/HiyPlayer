@@ -18,6 +18,6 @@ public class MainActivity extends AppCompatActivity {
 
         SimpleExoPlayer player = new SimpleExoPlayer.Builder(this).build()
 
-        player.
+        playerView
     }
 }
