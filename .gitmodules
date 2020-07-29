@@ -1,0 +1,4 @@
+[submodule "fiy"]
+	path = fiy
+	url = git@github.com:lsdeng/fiy.git
+	branch = master

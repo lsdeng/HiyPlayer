@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import io.flutter.app.FlutterActivity;
+
+public class MainActivity extends FlutterActivity {
 
 
     @Override

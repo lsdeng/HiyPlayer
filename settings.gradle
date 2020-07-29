@@ -4,8 +4,8 @@ include ':app'
 setBinding(new Binding([gradle: this]))
 evaluate(new File(
   settingsDir,
-  '../fiy/.android/include_flutter.groovy'
+  './fiy/.android/include_flutter.groovy'
 ))
 
 include ':fiy'
-project(':fiy').projectDir = new File('../fiy')
+project(':fiy').projectDir = new File('./fiy')
