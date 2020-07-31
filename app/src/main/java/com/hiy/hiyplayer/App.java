@@ -3,10 +3,12 @@ package com.hiy.hiyplayer;
 import android.app.Application;
 import android.util.Log;
 
-import com.tencent.mmkv.MMKV;
 import com.tencent.mmkv.MMKVHandler;
 import com.tencent.mmkv.MMKVLogLevel;
 import com.tencent.mmkv.MMKVRecoverStrategic;
+
+import io.flutter.embedding.engine.FlutterEngine;
+import io.flutter.view.FlutterMain;
 
 public class App extends Application implements MMKVHandler {
 
@@ -14,20 +16,25 @@ public class App extends Application implements MMKVHandler {
     public void onCreate() {
         super.onCreate();
 
-        initMMKV();
+        initFlutter();
+//        initMMKV();
+    }
+
+    private void initFlutter() {
+        FlutterMain.startInitialization(this);
     }
 
     // init mmkv lib
     private void initMMKV() {
-        String dir = getFilesDir().getAbsolutePath() + "mmkv";
-        String rootDir = MMKV.initialize(dir, new MMKV.LibLoader() {
-            @Override
-            public void loadLibrary(String s) {
-//            Relinker
-            }
-        }, MMKVLogLevel.LevelInfo);
-
-        MMKV.registerHandler(this);
+//        String dir = getFilesDir().getAbsolutePath() + "mmkv";
+//        String rootDir = MMKV.initialize(dir, new MMKV.LibLoader() {
+//            @Override
+//            public void (String s) {
+////            Relinker
+//            }
+//        }, MMKVLogLevel.LevelInfo);
+//
+//        MMKV.registerHandler(this);
     }
 
     @Override
