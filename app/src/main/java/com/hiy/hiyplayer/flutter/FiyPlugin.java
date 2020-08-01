@@ -4,9 +4,12 @@ import android.content.Context;
 import android.util.Log;
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
+import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.BinaryMessenger;
+import io.flutter.plugin.common.EventChannel;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry;
+import io.flutter.plugin.common.StandardMessageCodec;
 
 /**
  * @author zhishui <a href="mailto:liusd@tuya.com">Contact me.</a>
@@ -24,6 +27,9 @@ public class FiyPlugin implements FlutterPlugin {
         plugin.setupChannel(registrar.messenger(), registrar.context());
     }
 
+    public MethodChannel getChannel() {
+        return channel;
+    }
 
     @Override
     public void onAttachedToEngine(FlutterPluginBinding binding) {
@@ -44,5 +50,9 @@ public class FiyPlugin implements FlutterPlugin {
         channel = new MethodChannel(messenger, "toast");
         FiyMethodCallHandler handler = new FiyMethodCallHandler(context);
         channel.setMethodCallHandler(handler);
+
+        EventChannel eventChannel = new EventChannel(messenger, "event");
+        FiyEventCallHandler handler1 = new FiyEventCallHandler(context);
+        eventChannel.setStreamHandler(handler1);
     }
 }

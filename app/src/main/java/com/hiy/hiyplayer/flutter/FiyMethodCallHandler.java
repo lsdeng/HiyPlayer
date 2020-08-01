@@ -27,6 +27,8 @@ public class FiyMethodCallHandler implements MethodChannel.MethodCallHandler {
             String message = call.argument("msg");
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
             result.success("ok");
+        } else if (call.method.equals("log")) {
+            Toast.makeText(context, "flutter -> Native log", Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.hiy.hiyplayer.page;
 
 import android.os.Bundle;
+import android.os.Handler;
 
 import com.hiy.hiyplayer.flutter.FiyPlugin;
 
@@ -18,7 +19,15 @@ public class FiyActivity extends FlutterActivity {
 
         FlutterEngine flutterEngine =  getFlutterEngine();
         if (flutterEngine != null) {
-            flutterEngine.getPlugins().add(new FiyPlugin());
+            FiyPlugin fiyPlugin = new FiyPlugin();
+            flutterEngine.getPlugins().add(fiyPlugin);
+
+             new Handler().postDelayed(new Runnable() {
+                 @Override
+                 public void run() {
+                     fiyPlugin.getChannel().invokeMethod("test", "native => flutter");
+                 }
+             }, 1500);
 //            FiyPlugin.registerWith(get);
         }
 
