@@ -1,9 +1,10 @@
 package com.hiy.hiyplayer.flutter;
 
 import android.content.Context;
-import android.widget.Toast;
+import android.util.Log;
 
-import io.flutter.plugin.common.MethodCall;
+import io.flutter.embedding.engine.plugins.FlutterPlugin;
+import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry;
 
@@ -11,24 +12,37 @@ import io.flutter.plugin.common.PluginRegistry;
  * @author zhishui <a href="mailto:liusd@tuya.com">Contact me.</a>
  * @since 2020/7/31
  */
-public class FiyPlugin implements MethodChannel.MethodCallHandler {
+public class FiyPlugin implements FlutterPlugin {
 
-    private Context context;
-
-    public FiyPlugin(Context context) {
-        this.context = context;
-    }
+    MethodChannel channel;
 
     public static void registerWith(PluginRegistry.Registrar registrar) {
-        MethodChannel channel = new MethodChannel(registrar.messenger(), "fiyMain");
-        channel.setMethodCallHandler(new FiyPlugin(registrar.activity()));
+        Log.d("FLutterPlugun1", Log.getStackTraceString(new Throwable()));
+
+        FiyPlugin plugin = new FiyPlugin();
+
+        plugin.setupChannel(registrar.messenger(), registrar.context());
+    }
+
+
+    @Override
+    public void onAttachedToEngine(FlutterPluginBinding binding) {
+        Log.d("FLutterPlugun2", Log.getStackTraceString(new Throwable()));
+        setupChannel(binding.getBinaryMessenger(), binding.getApplicationContext());
     }
 
     @Override
-    public void onMethodCall(MethodCall call, MethodChannel.Result result) {
-        if (call.method.equals("toast")) {
-            Toast.makeText(context, "test", Toast.LENGTH_SHORT).show();
-            result.success("ok");
+    public void onDetachedFromEngine(FlutterPluginBinding binding) {
+       Log.d("FLutterPlugun3", Log.getStackTraceString(new Throwable()));
+        if (channel != null) {
+            channel.setMethodCallHandler(null);
+            channel = null;
         }
+    }
+
+    public void setupChannel(BinaryMessenger messenger, Context context) {
+        channel = new MethodChannel(messenger, "toast");
+        FiyMethodCallHandler handler = new FiyMethodCallHandler(context);
+        channel.setMethodCallHandler(handler);
     }
 }

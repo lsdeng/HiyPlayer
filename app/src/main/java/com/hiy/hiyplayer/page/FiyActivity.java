@@ -18,8 +18,11 @@ public class FiyActivity extends FlutterActivity {
 
         FlutterEngine flutterEngine =  getFlutterEngine();
         if (flutterEngine != null) {
-            FiyPlugin.registerWith();
+            flutterEngine.getPlugins().add(new FiyPlugin());
+//            FiyPlugin.registerWith(get);
         }
+
+
 
 
     }
