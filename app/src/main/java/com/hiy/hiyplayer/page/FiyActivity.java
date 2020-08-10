@@ -4,34 +4,33 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.hiy.hiyplayer.flutter.FiyPlugin;
+import com.idlefish.flutterboost.FlutterBoost;
+import com.idlefish.flutterboost.containers.BoostFlutterActivity;
 
 import io.flutter.embedding.android.FlutterActivity;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.plugins.shim.ShimPluginRegistry;
 import io.flutter.plugins.GeneratedPluginRegistrant;
 
-public class FiyActivity extends FlutterActivity {
+public class FiyActivity extends BoostFlutterActivity {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        FlutterEngine flutterEngine =  getFlutterEngine();
+        FlutterEngine flutterEngine = getFlutterEngine();
         if (flutterEngine != null) {
             FiyPlugin fiyPlugin = new FiyPlugin();
             flutterEngine.getPlugins().add(fiyPlugin);
 
-             new Handler().postDelayed(new Runnable() {
-                 @Override
-                 public void run() {
-                     fiyPlugin.getChannel().invokeMethod("test", "native => flutter");
-                 }
-             }, 1500);
-//            FiyPlugin.registerWith(get);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+//                    fiyPlugin.getChannel().invokeMethod("test", "native => flutter");
+                }
+            }, 1500);
         }
-
-
 
 
     }

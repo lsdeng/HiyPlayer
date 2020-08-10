@@ -1,11 +1,37 @@
 include ':base'
-rootProject.name='hiyPlayer'
+rootProject.name = 'hiyPlayer'
 include ':app'
 setBinding(new Binding([gradle: this]))
 evaluate(new File(
-  settingsDir,
-  './fiy/.android/include_flutter.groovy'
+        settingsDir,
+        './fiy/.android/include_flutter.groovy'
 ))
 
 include ':fiy'
 project(':fiy').projectDir = new File('./fiy')
+
+
+//
+//// 获取到flutter module 路径
+//println("flutter root Dir ： " + rootProject.projectDir.toPath())
+//println("flutter root Dir ： " + rootProject.projectDir.parentFile.toPath())
+//
+//def flutterProjectRoot = rootProject.projectDir.toPath().resolve('fiy')
+//println("flutter root Dir ： " + flutterProjectRoot)
+//// 找 flutter-plugins路径
+//def plugins = new Properties()
+//def pluginsFile = new File(flutterProjectRoot.toFile(), '.flutter-plugins')
+//println("flutter plugin path ： " + pluginsFile.getPath())
+//println("pluginsFile.exists() ： " + pluginsFile.exists())
+//
+//
+//if (pluginsFile.exists()) {
+//    pluginsFile.withReader('UTF-8') { reader -> plugins.load(reader) }
+//}
+//
+//plugins.each { name, path ->
+//    println("sub path :" + path)
+//    def pluginDirectory = flutterProjectRoot.resolve(path).resolve('android').toFile()
+//    include ":$name"
+//    project(":$name").projectDir = pluginDirectory
+//}
