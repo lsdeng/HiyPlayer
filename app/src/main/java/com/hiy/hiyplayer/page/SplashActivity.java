@@ -7,8 +7,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.hiy.fiy.M.flutter.PageRouter;
 import com.hiy.hiyplayer.R;
-import com.hiy.hiyplayer.flutter.PageRouter;
 
 public class SplashActivity extends AppCompatActivity {
     static {
@@ -31,8 +31,6 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(SplashActivity.this, stringFromJNI(), Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(SplashActivity.this, FiyActivity.class);
-//                startActivity(intent);
 
                 PageRouter.openPageByUrl(SplashActivity.this, "sample://flutterPage", null);
             }
