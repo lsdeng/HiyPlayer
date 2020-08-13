@@ -7,8 +7,11 @@ evaluate(new File(
         './fiy/.android/include_flutter.groovy'
 ))
 
-include ':fiy'
-project(':fiy').projectDir = new File('./fiy')
+//include ':fiy'
+//project(':fiy').projectDir = new File('./fiy')
+
+include ':fiyM'
+project(':fiyM').projectDir = new File('./fiy/fiyM')
 
 
 //
