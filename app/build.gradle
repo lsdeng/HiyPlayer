@@ -64,6 +64,7 @@ dependencies {
     // customer
 
     implementation 'com.google.android.exoplayer:exoplayer:2.11.5'
+    implementation 'com.google.android:flexbox:2.0.1'
 
     // 为什么需要添加当前行 因为flutterModules是通过implement的方式引入flutterBoost，
     // 1. 以该方法引入 或者 修改flutter sdk 目录下的引入方式 由 implement 改为  api
