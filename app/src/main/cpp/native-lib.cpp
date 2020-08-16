@@ -29,7 +29,6 @@ Java_com_hiy_hiyplayer_page_SplashActivity_plus(JNIEnv *env, jobject thiz, jint 
     return sum;
 }
 
-
 void util_jstring_to_char(JNIEnv *env, jstring jstr, char *result) {
     if (env == NULL || jstr == NULL) {
         return;
@@ -46,3 +45,5 @@ void util_jstring_to_char(JNIEnv *env, jstring jstr, char *result) {
     }
     env->ReleaseByteArrayElements(barr, ba, 0);
 }
+
+

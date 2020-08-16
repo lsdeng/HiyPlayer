@@ -38,3 +38,4 @@ project(':fiyM').projectDir = new File('./fiy/fiyM')
 //    include ":$name"
 //    project(":$name").projectDir = pluginDirectory
 //}
+include ':fiy'
