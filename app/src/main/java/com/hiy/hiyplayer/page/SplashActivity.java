@@ -1,9 +1,7 @@
 package com.hiy.hiyplayer.page;
 
 import android.content.Intent;
-import android.graphics.Camera;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,8 +32,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-
-        findViewById(R.id.title_tv).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.num11).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String resultTarget = stringFromJNI("I come from android world");
@@ -44,13 +41,10 @@ public class SplashActivity extends AppCompatActivity {
             }
         });
 
-        mPlusSumTv = findViewById(R.id.plus_tv);
+        mPlusSumTv = findViewById(R.id.num12);
         mPlusSumTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                sum = plus(sum, 1);
-//                mPlusSumTv.setText(String.valueOf(sum));
-
                 Intent intent = new Intent(SplashActivity.this, CameraActivity.class);
                 startActivity(intent);
             }
