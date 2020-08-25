@@ -44,6 +44,12 @@ android {
         sourceCompatibility = 1.8
     }
 
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['jniLibs']//指定lib库目录
+        }
+    }
+
 }
 
 dependencies {

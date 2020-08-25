@@ -42,4 +42,13 @@
         android:textColor="#fff"
         app:layout_wrapBefore="true" />
 
+    <TextView
+        android:id="@+id/num22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#4EE6A9"
+        android:padding="16dp"
+        android:text="Base 64"
+        android:textColor="#fff" />
+
 </com.google.android.flexbox.FlexboxLayout>
