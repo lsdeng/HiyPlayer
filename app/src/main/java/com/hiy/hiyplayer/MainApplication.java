@@ -12,6 +12,8 @@ public class MainApplication extends Application {
 
         initFlutter();
 //        initMMKV();
+
+//        Ex
     }
 
     private void initFlutter() {

@@ -8,8 +8,9 @@
     <meta-data
         android:name="flutterEmbedding"
         android:value="2" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -32,6 +33,22 @@
             </intent-filter>
         </activity>
         <activity android:name=".page.MainActivity" />
+
+        <activity android:name=".page.SchemaActivity">
+            <!-- Scheme -->
+            <intent-filter>
+                <data
+                    android:host="hiy.com"
+                    android:scheme="hiy" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+
+
     </application>
 
 </manifest>

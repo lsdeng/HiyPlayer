@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hiy.hiyplayer.R;
 
+@Route(path = "/app/main")
 public class MainActivity extends AppCompatActivity {
 
     @Override

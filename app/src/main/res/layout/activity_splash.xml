@@ -23,7 +23,6 @@
         android:layout_height="wrap_content"
         android:background="#4EE6A9"
         android:padding="16dp"
-        android:text="0"
         android:textColor="#fff" />
 
 </LinearLayout>
