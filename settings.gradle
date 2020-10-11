@@ -1,17 +1,18 @@
-include ':base'
 rootProject.name = 'hiyPlayer'
 include ':app'
-setBinding(new Binding([gradle: this]))
-evaluate(new File(
-        settingsDir,
-        './fiy/.android/include_flutter.groovy'
-))
+include ':base'
+
+//setBinding(new Binding([gradle: this]))
+//evaluate(new File(
+//        settingsDir,
+//        './fiy/.android/include_flutter.groovy'
+//))
 
 //include ':fiy'
 //project(':fiy').projectDir = new File('./fiy')
 
-include ':fiyM'
-project(':fiyM').projectDir = new File('./fiy/fiyM')
+//include ':fiyM'
+//project(':fiyM').projectDir = new File('./fiy/fiyM')
 
 
 //
@@ -38,4 +39,4 @@ project(':fiyM').projectDir = new File('./fiy/fiyM')
 //    include ":$name"
 //    project(":$name").projectDir = pluginDirectory
 //}
-include ':fiy'
+//include ':fiy'

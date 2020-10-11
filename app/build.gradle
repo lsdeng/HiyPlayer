@@ -50,6 +50,12 @@ android {
         sourceCompatibility = 1.8
     }
 
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['jniLibs']//指定lib库目录
+        }
+    }
+
 }
 
 dependencies {
@@ -72,14 +78,21 @@ dependencies {
     implementation 'com.google.android.exoplayer:exoplayer:2.11.5'
     implementation 'com.google.android:flexbox:2.0.1'
 
-    implementation("com.squareup.okhttp3:okhttp:3.8.1")
+    implementation("com.squareup.okhttp3:okhttp:3.12.10")
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.5.0'
 
     // 为什么需要添加当前行 因为flutterModules是通过implement的方式引入flutterBoost，
     // 1. 以该方法引入 或者 修改flutter sdk 目录下的引入方式 由 implement 改为  api
-    implementation project(':flutter_boost')
-    implementation  project(':fiyM')
+//    implementation project(':flutter_boost')
+//    implementation  project(':fiyM')
     implementation  project(':base')
+    implementation 'com.github.bumptech.glide:glide:3.6.0'
 
     implementation 'com.alibaba:arouter-api:1.5.0'
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.zhihu.android:matisse:0.5.2'
+
+    implementation group: 'me.drakeet.multitype', name: 'multitype', version: '3.4.4'
 }
